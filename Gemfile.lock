@@ -70,6 +70,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.10.0)
+      devise (>= 4.8.0)
     erubi (1.10.0)
     ffi (1.15.4-x86-mingw32)
     globalid (0.5.2)
@@ -181,6 +183,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   devise (~> 4.8)
+  devise-i18n (~> 1.10)
   jbuilder (~> 2.7)
   puma (~> 4.1)
   rails (~> 6.0.4, >= 6.0.4.1)
