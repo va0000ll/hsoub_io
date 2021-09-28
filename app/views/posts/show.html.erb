@@ -11,11 +11,4 @@
 <% end %>
 
 <h3>التعليقات</h3>
-<% @post.comments.each do |comment| %>
-    <ul>
-    <li><%= comment.user.email %></li>
-    <li><%= comment.created_at.strftime('%B %e %Y at %l:%M %p') %></li>
-    </ul>
-    <hr>
-    <p><%= comment.text %></p>
-<% end %>
+<%= nested_comments @post.comments.arrange(order: :created_at) %>

@@ -1,0 +1,7 @@
+<ul>
+    <li><%= comment.user.email %></li>
+    <li><%= comment.created_at.strftime('%B %e %Y at %l:%M %p') %></li>
+</ul>
+<p><%= comment.text %></p>
+<%= link_to t('.reply'), new_post_comment_path(@post, parent_id: comment) unless current_page?(action: :new) %>
+<hr>

@@ -1,9 +1,14 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: :create
+  before_action :set_post, only: %i[create new]
+
+  def new
+    @comment = Comment.find(params[:parent_id])
+  end
 
   def create
     @comment = @post.comments.new(comment_params)
+    @comment.ancestry = params[:comment][:parent_id]
     @comment.user = current_user
     flash[:notice] = if @comment.save
                        t('comment.create.success')
@@ -21,9 +26,5 @@ class CommentsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:post_id])
-  end
-
-  def set_comment
-    @comment = Comment.find(params[:id])
   end
 end

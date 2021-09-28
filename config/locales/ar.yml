@@ -39,6 +39,11 @@ ar:
   links:
     new:
       select: 'اختر المجتمع المناسب للموضوع'
+  comments:
+    comment:
+      reply: 'اضافة رد'
+    new:
+      heading: 'اضافة رد'
   activerecord:
     errors:
       models:

@@ -1,3 +1,21 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.nested-comments {
+  padding-left: 30px;
+  .nested-comments {
+    .nested-comments {
+      .nested-comments {
+        padding-left: 0px;
+      }
+    }
+  }
+}
+
+ul {
+  margin-left: 0;
+  li {
+    // margi
+  }
+}
