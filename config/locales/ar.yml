@@ -3,12 +3,47 @@ ar:
   sign_in: 'تسجيل الدخول'
   sign_out: 'تسجيل الخروج'
   new_community: 'اضافة مجتمع جديد'
+  new_topic: 'اضافة موضوع جديد'
+  new_link: 'اضافة رابط جديد'
+  new_comment: 'اضافة رابط جديد'
+  comment:
+    create:
+      success: 'تم انشاء التعليق بنجاح'
 
   helpers:
     placeholder:
       community:
         name: 'اسم المجتمع'
         description: 'وصف المجتمع'
+      topic:
+        title: 'عنوان المساهمة'
+        text: 'محتوى المساهمة'
+      link:
+        title: 'عنوان المساهمة'
+        url: 'الرابط'
+      comment:
+        text: 'نص التعليق'
     submit:
       community:
         submit: 'اضافة المجتمع'
+      topic:
+        submit: 'اضافة مساهمة'
+      link:
+        submit: 'اضافة رابط'
+      comment:
+        create: 'ارسال'
+
+  topics:
+    new:
+      select: 'اختر المجتمع المناسب للموضوع'
+  links:
+    new:
+      select: 'اختر المجتمع المناسب للموضوع'
+  activerecord:
+    errors:
+      models:
+        comment:
+          attributes:
+            text:
+              blank: 'يرجى كتابة نص التعليق'
+              required: 'يجب كتابة نص التعليق'

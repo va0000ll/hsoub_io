@@ -1,2 +1,20 @@
-<h1>Links#new</h1>
-<p>Find me in app/views/links/new.html.erb</p>
+<h1><%= t('new_link') %></h1>
+<% if @link&.errors&.any? %>
+    <ul>
+        <% @link.errors.messages.values.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
+<%= form_with scope: :link, url: links_path, local: true do |form| %>
+  <div>
+    <%= form.collection_select :community_id, Community.order(:name), :id, :name, {prompt: t('.select')} %>
+  </div>
+  <div>
+    <%= form.text_field :title, placeholder: true %>
+  </div>
+  <div>
+    <%= form.url_field :url, placeholder: true %>
+  </div>
+  <%= form.submit %>
+<% end %>

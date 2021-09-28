@@ -1,2 +1,21 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1><%= @post.title %></h1>
+
+<p><%= @post&.topic&.text || link_to(@post&.link&.url, @post&.link&.url, target: '_blank', rel: 'nofollow noopener noreferrer') %></p>
+
+<h2><%= t('new_comment') %></h2>
+<%= form_with(model: [@post, @comment], locale: true) do |f| %>
+ <div>
+   <%= f.text_area :text, placeholder: true %>
+ </div>
+ <%= f.submit %>
+<% end %>
+
+<h3>التعليقات</h3>
+<% @post.comments.each do |comment| %>
+    <ul>
+    <li><%= comment.user.email %></li>
+    <li><%= comment.created_at.strftime('%B %e %Y at %l:%M %p') %></li>
+    </ul>
+    <hr>
+    <p><%= comment.text %></p>
+<% end %>

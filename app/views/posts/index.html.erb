@@ -1,2 +1,9 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<% if @posts.empty? %>
+    <h2>لا توجد مساهمات</h2>
+<% else %>
+    <% @posts.each do |post| %>
+        <h1><%= link_to post.title, [post] %></h1>
+        <p><%= post&.topic&.text || post&.link&.url %></p>
+        <hr>
+    <% end %>
+<% end %> 

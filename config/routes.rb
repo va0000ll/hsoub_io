@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get 'comments/create'
   root 'home#index'
   devise_for :users
-  resources :posts
-  resources :comments
+  resources :posts do
+    resources :comments
+  end
   resources :communities
   resources :links
   resources :topics
