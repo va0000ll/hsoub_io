@@ -1,0 +1,9 @@
+<% if @communities.empty? %>
+    <h2>لا توجد مجتمعات</h2>
+<% else %>
+    <% @communities.each do |community| %>
+        <h2><%= community.name %></h2>
+        <p><%= community.description %></p>
+        <hr>
+    <% end %>
+<% end %> 

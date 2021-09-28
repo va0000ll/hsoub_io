@@ -1,7 +1,8 @@
 <h3>مرحبا بك فى حسوب I/O!</h3>
 <% if user_signed_in? %>
 <p>مرحبا بك <%= current_user&.email %></p>
-<%= link_to 'تسجل الخروج', destroy_user_session_path, method: :delete %>
+<%= link_to t('sign_out'), destroy_user_session_path, method: :delete %>
+<%= link_to t('new_community'), new_community_path %>
 <% else %>
-<%= link_to 'تسجل الدخول', new_user_session_path %>
+<%= link_to t('sign_in'), new_user_session_path %>
 <% end %>

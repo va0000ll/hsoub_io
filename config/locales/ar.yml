@@ -2,3 +2,13 @@ ar:
   sign_up: 'تسجيل حساب جديد'
   sign_in: 'تسجيل الدخول'
   sign_out: 'تسجيل الخروج'
+  new_community: 'اضافة مجتمع جديد'
+
+  helpers:
+    placeholder:
+      community:
+        name: 'اسم المجتمع'
+        description: 'وصف المجتمع'
+    submit:
+      community:
+        submit: 'اضافة المجتمع'

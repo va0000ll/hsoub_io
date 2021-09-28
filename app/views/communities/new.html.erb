@@ -1,0 +1,17 @@
+<h1><%= t('new_community') %></h1>
+<% if @community&.errors&.any? %>
+    <ul>
+        <% @community.errors.messages.values.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
+<%= form_with scope: :community, url: communities_path, local: true do |form| %>
+  <div>
+    <%= form.text_field :name, placeholder: true %>
+  </div>
+  <div>
+    <%= form.text_area :description, placeholder: true %>
+  </div>
+  <%= form.submit %>
+<% end %>
