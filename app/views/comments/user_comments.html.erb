@@ -1,3 +1,4 @@
+<%= render 'users/profile', user: @user %>
 <h1><%= link_to t('.my_post'), u_path(params[:u_id]) %></h1>
 <h1><%= t('.my_comments') %></h1>
 <%= render @comments %>

@@ -3,6 +3,7 @@
 <p>مرحبا بك <%= current_user&.email %></p>
 <p><%= t('user_reputation') %>: <%= current_user.reputation %></p>
 <%= link_to t('my_account'), u_path(current_user) %>
+<%= link_to t('edit_account'), edit_user_registration_path %>
 <%= link_to t('new_community'), new_community_path %>
 <%= link_to t('new_topic'), new_topic_path %>
 <%= link_to t('new_link'), new_link_path %>

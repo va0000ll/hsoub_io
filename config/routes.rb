@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'users/show'
   get 'comments/create'
   root 'home#index'
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   resources :posts do
     resources :comments
     member do

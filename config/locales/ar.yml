@@ -11,6 +11,7 @@ ar:
   dislike: 'لم يعجبني'
   user_reputation: 'سمعة المستخدم'
   my_account: 'حسابي'
+  edit_account: 'تعديل حسابي'
 
   helpers:
     placeholder:
@@ -59,8 +60,28 @@ ar:
       success: 'تم انشاء التعليق بنجاح'
 
   activerecord:
+    attributes:
+      user:
+        first_name: 'الإسم الأول'
+        last_name: 'الإسم الأخير'
+        description: 'نبذة عني'
+        country: 'الدولة'
+        language: 'اللغة'
+        gender: 'الجنس'
+        birth_date: 'تاريخ الميلاد'
     errors:
       models:
+        user:
+          attributes:
+            first_name:
+              blank: 'يجب كتابة الإسم الأول'
+              required: 'يجب كتابة الإسم الأول'
+            last_name:
+              blank: 'يجب كتابة الإسم الأخير'
+              required: 'يجب كتابة الإسم الأخير'
+            description:
+              blank: 'يجب كتابة نبذة عنك'
+              required: 'يجب كتابة نبذة عنك'
         comment:
           attributes:
             text:

@@ -1,0 +1,9 @@
+<h2><%= user.first_name + " " + user.last_name %></h2>
+<p><%= user.description %></p>
+<p><%= user.email %></p>
+<p><%= user.country %></p>
+<p><%= user.language %></p>
+<p><%= user.gender %></p>
+<p><%= user.birth_date %></p>
+<p>نقاط السمعة: <%= user.reputation %></p>
+<p>تاريخ التسجيل: <%= user.created_at.strftime('%B %e %Y at %l:%M %p') %></p>
