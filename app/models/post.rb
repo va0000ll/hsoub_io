@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  acts_as_votable
+
   belongs_to :community
   belongs_to :user
   has_one :link

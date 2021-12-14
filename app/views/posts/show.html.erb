@@ -1,6 +1,11 @@
 <h1><%= @post.title %></h1>
 
 <p><%= @post&.topic&.text || link_to(@post&.link&.url, @post&.link&.url, target: '_blank', rel: 'nofollow noopener noreferrer') %></p>
+<div>
+  <%= link_to t('like'), vote_post_path(@post, type: 'up'), method: :post %>
+  <p><%= @post.find_votes_for(vote_scope: 'reputation').sum(:vote_weight) %></p>
+  <%= link_to t('dislike'), vote_post_path(@post, type: 'down'), method: :post %>
+</div>
 
 <h2><%= t('new_comment') %></h2>
 <%= form_with(model: [@post, @comment], locale: true) do |f| %>

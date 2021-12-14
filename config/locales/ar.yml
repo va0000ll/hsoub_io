@@ -5,10 +5,10 @@ ar:
   new_community: 'اضافة مجتمع جديد'
   new_topic: 'اضافة موضوع جديد'
   new_link: 'اضافة رابط جديد'
-  new_comment: 'اضافة رابط جديد'
-  comment:
-    create:
-      success: 'تم انشاء التعليق بنجاح'
+  new_comment: 'اضافة تعليق جديد'
+  voting_thanks: 'نشكرك على التصويت'
+  like: 'أعجبني'
+  dislike: 'لم يعجبني'
 
   helpers:
     placeholder:
@@ -44,6 +44,11 @@ ar:
       reply: 'اضافة رد'
     new:
       heading: 'اضافة رد'
+
+  comment:
+    create:
+      success: 'تم انشاء التعليق بنجاح'
+
   activerecord:
     errors:
       models:
