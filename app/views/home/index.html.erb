@@ -1,11 +1,12 @@
 <h3>مرحبا بك فى حسوب I/O!</h3>
 <% if user_signed_in? %>
 <p>مرحبا بك <%= current_user&.email %></p>
+<p><%= t('user_reputation') %>: <%= current_user.reputation %></p>
+<%= link_to t('my_account'), u_path(current_user) %>
 <%= link_to t('new_community'), new_community_path %>
 <%= link_to t('new_topic'), new_topic_path %>
 <%= link_to t('new_link'), new_link_path %>
 <%= link_to t('sign_out'), destroy_user_session_path, method: :delete %>
-<p>سمعة المستخدم: <%= current_user.reputation %></p>
 <% else %>
 <%= link_to t('sign_in'), new_user_session_path %>
 <% end %>

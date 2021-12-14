@@ -1,0 +1,11 @@
+<h1><%= t('.my_post') %></h1>
+
+<% if @posts.empty? %>
+    <h2>لا توجد مساهمات</h2>
+<% else %>
+    <% @posts.each do |post| %>
+        <h1><%= link_to post.title, [post] %></h1>
+        <p><%= post&.topic&.text || post&.link&.url %></p>
+        <hr>
+    <% end %>
+<% end %> 

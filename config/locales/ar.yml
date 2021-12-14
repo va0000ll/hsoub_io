@@ -9,6 +9,8 @@ ar:
   voting_thanks: 'نشكرك على التصويت'
   like: 'أعجبني'
   dislike: 'لم يعجبني'
+  user_reputation: 'سمعة المستخدم'
+  my_account: 'حسابي'
 
   helpers:
     placeholder:
@@ -44,6 +46,9 @@ ar:
       reply: 'اضافة رد'
     new:
       heading: 'اضافة رد'
+  users:
+    show:
+      my_post: 'مساهماتي'
 
   comment:
     create:

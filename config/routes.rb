@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   get 'comments/create'
   root 'home#index'
   devise_for :users
@@ -12,4 +13,5 @@ Rails.application.routes.draw do
   resources :links
   resources :topics
   resources :users
+  resources :u, controller: 'users'
 end
