@@ -13,5 +13,8 @@ Rails.application.routes.draw do
   resources :links
   resources :topics
   resources :users
-  resources :u, controller: 'users'
+  resources :u, controller: 'users' do
+    resources :comments, except: :index
+    get 'comments', to: 'comments#user_comments'
+  end
 end

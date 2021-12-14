@@ -18,6 +18,11 @@ class CommentsController < ApplicationController
     redirect_to @post
   end
 
+  def user_comments
+    @user = User.find_by_id(params[:u_id])
+    @comments = @user.comments.where(ancestry: nil)
+  end
+
   private
 
   def comment_params

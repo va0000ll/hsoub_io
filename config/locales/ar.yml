@@ -46,9 +46,13 @@ ar:
       reply: 'اضافة رد'
     new:
       heading: 'اضافة رد'
+    user_comments:
+      my_post: 'مساهماتي'
+      my_comments: 'تعليقاتي'
   users:
     show:
       my_post: 'مساهماتي'
+      my_comments: 'تعليقاتي'
 
   comment:
     create:
