@@ -1,31 +1,107 @@
-<h1><%= @post.title %></h1>
-<% if @post&.link %>
-<p><%= link_to(@post.link.url, @post.link.url, target: '_blank', rel: 'nofollow noopener noreferrer') %></p>
-<% if current_user&.moderator? %>
-<%= link_to t('edit_post'), edit_link_path(@post.link) %>
-<% end %>
-<% else %>
-<p><%= @post.topic.text %></p>
-<% if current_user&.moderator? %>
-<%= link_to t('edit_post'), edit_topic_path(@post.topic) %>
-<% end %>
-<% end %>
+<div class="content container">
+	<div class="itemsList">
+  		<div class="listItem post row">
+  			<div class="post_vote col-md-1">
+				<div>
+					<%= link_to vote_post_path(@post, type: "up"), method: "post" do %>
+						<i class="glyphicon glyphicon-menu-up"></i>
+					<% end %>
+					<div class="post_points">
+						<%= @post.find_votes_for(:vote_scope => 'reputation').sum(:vote_weight) %>
+					</div>
+					<%= link_to vote_post_path(@post, type: "down"), method: "post" do %>
+						<i class="glyphicon glyphicon-menu-down"></i>
+					<% end %>
+				</div>
+			</div>
+  			<div class="postQuestion col-md-11">
+				<h2><%= link_to @post.title, post_path(@post) %></h2>
+				<% if @post&.link %>
+	  				<span><%= @post.link.url %></span>
+	  			<% end %>
+				<div class="postDetails ">
+  					<ul>
+					    <li class="pull-right">
+					    	<span><%= link_to @post.user.email,  u_path(@post.user)%> </span>
+						</li>
+				      	<li class="pull-right">
+				      		<i class="glyphicon glyphicon-align-justify"></i>
+				      		<%= link_to @post.community.name,  community_path(@post.community)%>
+				        </li>
+				    	<li class="pull-right">
+				    		<i class="glyphicon glyphicon-time"></i>
+				      		<%= @post.user.created_at.strftime('%B %e %Y at %l:%M %p') %>
+				    	</li>
+				      	<li class="pull-right">
+				      		<i class="glyphicon glyphicon-comment"></i>
+				      		<%= @post.comments.count %> <%= t('comment_count') %>
+				      	</li>
+				      	<li class="pull-right dropdown">
+				      		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				      			<span>المزيد</span>
+				      			<i class="glyphicon glyphicon-option-horizontal"></i>
+				      		</a>
+			                <ul class="dropdown-menu">
+			                  <li>
+			                   <a href="https://www.facebook.com/sharer/sharer.php?u=https://io.hsoub.com/go/<%= @post.id %>" target="_blank">
+			                   	<i class="fab fa-facebook-f"></i><%= t('fb')%>
+			                   </a>
+			                  </li>
+			                  <li>
+			                   <a href="https://twitter.com/intent/tweet?text=<%= @post.title %>&via=HsoubIO&related=HsoubIO&url=https://io.hsoub.com/go/<%= @post.id %>" target="_blank">
+			                   	<i class="fab fa-twitter"></i><%= t('twitter')%>
+			                   </a>
+			                  </li>
+			                  <li>
+			                   <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://io.hsoub.com/go/<%= @post.id %>" target="_blank">
+			                   	<i class="fab fa-linkedin"></i><%= t('linkedin')%>
+			                   </a>
+			                  </li>
+			                  <li>
+			                   <a href="/go/<%= @post.id %>" target="_blank">
+			                   	<i class="fas fa-link"></i><%= t('short_link')%>
+			                   </a>
+			                  </li>
+			                </ul>
+				      	</li>
+				      	<% if current_user && current_user.moderator? %>
+  							<li class="pull-right">
+  								<% if @post&.link %>
+				      				<%= link_to t('.edit'), edit_link_path(@post) %>
+	  							<% end %>
+	  							<% if  @post&.topic %>
+	  								<%= link_to t('.edit'), edit_topic_path(@post) %>
+  								<% end %>
+				      		</li>
+						<% end %>
+				  	</ul>
+  				</div>
+  				</br></br>
+  				<div>
+  					<% if  @post&.topic %>
+	  					<%= @post.topic.text %>
+  					<% end %>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="listItem commentBox row">
+  			<%= form_with(model: [ @post, @comment ], local: true) do |form| %>
+			  <p>
+			    <%= form.text_area :text , {placeholder: true, :class=>'text_area'}%>
+			  </p>
 
-<a href="https://fb.com/sharer/sharer.php?u=https://io.hsoub.com/go/<%= @post.id %>">Facebook</a>
-
-<div>
-  <%= link_to t('like'), vote_post_path(@post, type: 'up'), method: :post %>
-  <p><%= @post.find_votes_for(vote_scope: 'reputation').sum(:vote_weight) %></p>
-  <%= link_to t('dislike'), vote_post_path(@post, type: 'down'), method: :post %>
+			  <p>
+			    <%= form.submit %>
+			  </p>
+			<% end %>
+  		</div>
+  		<h3><%= t '.comments' %></h3>
+  		<% if @post.comments.any? %>
+	  		<%= nested_comments @post.comments.arrange(:order => :created_at) %>
+		<% else %>
+		  	<p><%= t('.no_comments') %></p>
+		<% end %>
+	</div>
 </div>
-
-<h2><%= t('new_comment') %></h2>
-<%= form_with(model: [@post, @comment], locale: true) do |f| %>
- <div>
-   <%= f.text_area :text, placeholder: true %>
- </div>
- <%= f.submit %>
-<% end %>
-
-<h3>التعليقات</h3>
-<%= nested_comments @post.comments.arrange(order: :created_at) %>
+</br>
+<%= link_to t('.back'), posts_path %>

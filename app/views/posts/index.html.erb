@@ -1,13 +1,18 @@
-<%= form_tag posts_path, method: :get do %>
-  <%= text_field_tag :search, params[:search], placeholder: t('search_for') %>
-  <%= submit_tag t('search') %>
-<% end %>
-<% if @posts.empty? %>
-    <h2>لا توجد مساهمات</h2>
+<% if params[:search] %>
+	<h1><%= t 'search_result' %><span><%= params[:search] %></span></h1>
 <% else %>
-    <% @posts.each do |post| %>
-        <h1><%= link_to post.title, [post] %></h1>
-        <p><%= post&.topic&.text || post&.link&.url %></p>
-        <hr>
-    <% end %>
-<% end %> 
+	<h1><%= t '.all_posts' %></h1>
+<% end %>
+<%= render 'search' %>
+<div class="content container">
+	<div class="itemsList">
+		<% if @posts.empty? %>
+			<div class="listItem row">
+				<h2><%= t '.nil_posts' %></h2>
+			</div>
+		<% else %>
+			<%= render @posts %>
+	  <% end %>
+	</div>
+</div>
+</br>

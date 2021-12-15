@@ -1,20 +1,12 @@
-<h3>مرحبا بك فى حسوب I/O!</h3>
 <% if user_signed_in? %>
-<p>مرحبا بك <%= current_user&.email %></p>
-<p><%= t('user_reputation') %>: <%= current_user.reputation %></p>
-<%= link_to t('my_account'), u_path(current_user) %>
-<%= link_to t('edit_account'), edit_user_registration_path %>
-<%= link_to t('noti'), '/notifications' %>(<%= Notification.unread_count(current_user) %>)
-<%= link_to t('new_community'), new_community_path %>
-<%= link_to t('new_topic'), new_topic_path %>
-<%= link_to t('new_link'), new_link_path %>
-<%= link_to t('sign_out'), destroy_user_session_path, method: :delete %>
-<p></p>
-<% @posts.each do |post| %>
-    <h1><%= link_to post.title, [post] %></h1>
-    <p><%= post&.topic&.text || post&.link&.url %></p>
-    <hr>
-<% end %>
+    <% if @posts %>
+        <h2><%= t 'rss' %></h2>
+        <div class="content container">
+            <div class="itemsList">
+                <%= render @posts %>
+            </div>
+        </div>
+    <% end %>
 <% else %>
-<%= link_to t('sign_in'), new_user_session_path %>
+    <h1>مرحبا بك في حسوب I\O!</h1>
 <% end %>
