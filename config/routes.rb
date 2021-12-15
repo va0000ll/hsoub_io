@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
   get 'users/show'
   get 'comments/create'
+  get '/go/:id', to: 'posts#show'
   root 'home#index'
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :posts do

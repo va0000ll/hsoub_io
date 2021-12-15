@@ -10,6 +10,9 @@
 <%= link_to t('edit_post'), edit_topic_path(@post.topic) %>
 <% end %>
 <% end %>
+
+<a href="https://fb.com/sharer/sharer.php?u=https://io.hsoub.com/go/<%= @post.id %>">Facebook</a>
+
 <div>
   <%= link_to t('like'), vote_post_path(@post, type: 'up'), method: :post %>
   <p><%= @post.find_votes_for(vote_scope: 'reputation').sum(:vote_weight) %></p>
