@@ -16,3 +16,9 @@ require("bootstrap/dist/js/bootstrap")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+$(function(){
+    $('#menu-toggle').on('click', function(e){
+        e.preventDefault();
+        $('#wrapper').toggleClass('toggled');
+    });
+});
