@@ -12,6 +12,7 @@ ar:
   user_reputation: 'سمعة المستخدم'
   my_account: 'حسابي'
   edit_account: 'تعديل حسابي'
+  not_authorized: 'ليست لديك صلاحيات الوصول لهذا الرابط'
 
   helpers:
     placeholder:

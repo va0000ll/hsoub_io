@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :comments
+    resources :communities
+    resources :links
+    resources :posts
+    resources :topics
+
+    root to: 'users#index'
+  end
   get 'users/show'
   get 'comments/create'
   root 'home#index'

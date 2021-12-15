@@ -12,6 +12,14 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
 
+  enum role: %i[user moderator admin]
+
+  after_initialize :set_default_role, if: :new_record?
+
+  def set_default_role
+    self.role ||= :user
+  end
+
   def reputation
     result = 0
     get_voted(Post).each do |post|
