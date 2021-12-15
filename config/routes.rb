@@ -21,7 +21,12 @@ Rails.application.routes.draw do
       post :vote
     end
   end
-  resources :communities
+  resources :communities do
+    member do
+      post :follow
+      post :unfollow
+    end
+  end
   resources :links
   resources :topics
   resources :users

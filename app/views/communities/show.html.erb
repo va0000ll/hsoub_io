@@ -1,2 +1,8 @@
 <h2><%= @community.name %></h2>
 <p><%= @community.description %></p>
+
+<% if current_user.communities.include? @community %>
+  <%= link_to t('unfollow'), unfollow_community_path(@community), method: :post %>
+<% else %>
+  <%= link_to t('follow'), follow_community_path(@community), method: :post %>
+<% end %>

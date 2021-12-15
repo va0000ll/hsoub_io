@@ -19,6 +19,10 @@ ar:
   search: 'بحث'
   search_for: 'بحث عن...'
   noti: 'الإشعارات'
+  followed_community: 'قمت بمتابعة المجتمع'
+  unfollowed_community: 'قمت بالغاء متابعة المجتمع'
+  unfollow: 'الغاء المتابعة'
+  follow: 'متابعة'
 
   helpers:
     placeholder:

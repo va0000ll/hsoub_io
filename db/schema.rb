@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_15_121049) do
+ActiveRecord::Schema.define(version: 2021_12_15_123058) do
 
   create_table "comments", force: :cascade do |t|
     t.text "text"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 2021_12_15_121049) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "community_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["community_id"], name: "index_follows_on_community_id"
+    t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -107,6 +116,8 @@ ActiveRecord::Schema.define(version: 2021_12_15_121049) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "follows", "communities"
+  add_foreign_key "follows", "users"
   add_foreign_key "links", "posts"
   add_foreign_key "posts", "communities"
   add_foreign_key "topics", "posts"

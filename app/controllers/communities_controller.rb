@@ -1,6 +1,6 @@
 class CommunitiesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  before_action :set_community, only: %i[show]
+  before_action :set_community, only: %i[show follow unfollow]
 
   def new
   end
@@ -19,6 +19,16 @@ class CommunitiesController < ApplicationController
   end
 
   def show
+  end
+
+  def follow
+    current_user.follows.create(community: @community)
+    redirect_to @community, notice: t('followed_community')
+  end
+
+  def unfollow
+    current_user.follows.find_by(community: @community).destroy
+    redirect_to @community, notice: t('unfollowed_community')
   end
 
   private
