@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: %i[slugged finders]
   acts_as_votable
 
   belongs_to :community
@@ -17,5 +19,9 @@ class Post < ApplicationRecord
     else
       all
     end
+  end
+
+  def normalize_friendly_id(string)
+    string.gsub(/\s+/, '-').gsub(/[^a-zA-Zأ-ي-0-9-]*/, '')
   end
 end

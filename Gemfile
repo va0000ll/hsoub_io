@@ -51,3 +51,4 @@ gem "acts_as_votable", "~> 0.13.1"
 
 gem "administrate"
 gem 'notifications'
+gem 'friendly_id'

@@ -89,6 +89,8 @@ GEM
       devise (>= 4.8.0)
     erubi (1.10.0)
     ffi (1.15.4-x86-mingw32)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     globalid (0.5.2)
       activesupport (>= 5.0)
     i18n (1.8.10)
@@ -224,6 +226,7 @@ DEPENDENCIES
   byebug
   devise (~> 4.8)
   devise-i18n (~> 1.10)
+  friendly_id
   jbuilder (~> 2.7)
   notifications
   puma (~> 4.1)
