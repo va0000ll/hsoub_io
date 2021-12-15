@@ -1,6 +1,15 @@
 <h1><%= @post.title %></h1>
-
-<p><%= @post&.topic&.text || link_to(@post&.link&.url, @post&.link&.url, target: '_blank', rel: 'nofollow noopener noreferrer') %></p>
+<% if @post&.link %>
+<p><%= link_to(@post.link.url, @post.link.url, target: '_blank', rel: 'nofollow noopener noreferrer') %></p>
+<% if current_user&.moderator? %>
+<%= link_to t('edit_post'), edit_link_path(@post.link) %>
+<% end %>
+<% else %>
+<p><%= @post.topic.text %></p>
+<% if current_user&.moderator? %>
+<%= link_to t('edit_post'), edit_topic_path(@post.topic) %>
+<% end %>
+<% end %>
 <div>
   <%= link_to t('like'), vote_post_path(@post, type: 'up'), method: :post %>
   <p><%= @post.find_votes_for(vote_scope: 'reputation').sum(:vote_weight) %></p>

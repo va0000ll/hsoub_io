@@ -1,0 +1,14 @@
+<h1><%= t('edit_topic') %></h1>
+<% if @topic&.errors&.any? %>
+    <ul>
+        <% @topic.errors.messages.values.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
+<%= form_with scope: :topic, url: topic_path(@topic), method: :put, local: true do |form| %>
+  <div>
+    <%= form.text_area :text, placeholder: true %>
+  </div>
+  <%= form.submit %>
+<% end %>

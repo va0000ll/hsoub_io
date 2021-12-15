@@ -4,7 +4,9 @@ ar:
   sign_out: 'تسجيل الخروج'
   new_community: 'اضافة مجتمع جديد'
   new_topic: 'اضافة موضوع جديد'
+  edit_topic: 'تعديل الموضوع'
   new_link: 'اضافة رابط جديد'
+  edit_link: 'تعديل رابط'
   new_comment: 'اضافة تعليق جديد'
   voting_thanks: 'نشكرك على التصويت'
   like: 'أعجبني'
@@ -13,6 +15,7 @@ ar:
   my_account: 'حسابي'
   edit_account: 'تعديل حسابي'
   not_authorized: 'ليست لديك صلاحيات الوصول لهذا الرابط'
+  edit_post: 'تعديل'
 
   helpers:
     placeholder:
