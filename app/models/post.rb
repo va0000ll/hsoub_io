@@ -10,4 +10,12 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :user, presence: true
   validates :community, presence: true
+
+  def self.search(query)
+    if query
+      where('title LIKE :query', query: "%#{query}%")
+    else
+      all
+    end
+  end
 end

@@ -50,3 +50,4 @@ gem "ancestry", "~> 4.1"
 gem "acts_as_votable", "~> 0.13.1"
 
 gem "administrate"
+gem 'notifications'

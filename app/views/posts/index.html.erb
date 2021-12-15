@@ -1,3 +1,7 @@
+<%= form_tag posts_path, method: :get do %>
+  <%= text_field_tag :search, params[:search], placeholder: t('search_for') %>
+  <%= submit_tag t('search') %>
+<% end %>
 <% if @posts.empty? %>
     <h2>لا توجد مساهمات</h2>
 <% else %>

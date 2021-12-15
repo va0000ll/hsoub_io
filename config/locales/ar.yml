@@ -16,6 +16,8 @@ ar:
   edit_account: 'تعديل حسابي'
   not_authorized: 'ليست لديك صلاحيات الوصول لهذا الرابط'
   edit_post: 'تعديل'
+  search: 'بحث'
+  search_for: 'بحث عن...'
 
   helpers:
     placeholder:

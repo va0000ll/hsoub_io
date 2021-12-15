@@ -126,6 +126,9 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.4-x86-mingw32)
       racc (~> 1.4)
+    notifications (1.1.0)
+      kaminari (>= 0.15)
+      rails (>= 5.2)
     orm_adapter (0.5.0)
     puma (4.3.8)
       nio4r (~> 2.0)
@@ -222,6 +225,7 @@ DEPENDENCIES
   devise (~> 4.8)
   devise-i18n (~> 1.10)
   jbuilder (~> 2.7)
+  notifications
   puma (~> 4.1)
   rails (~> 6.0.4, >= 6.0.4.1)
   sass-rails (>= 6)
