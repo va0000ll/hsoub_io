@@ -18,6 +18,7 @@ ar:
   edit_post: 'تعديل'
   search: 'بحث'
   search_for: 'بحث عن...'
+  noti: 'الإشعارات'
 
   helpers:
     placeholder:
@@ -60,6 +61,12 @@ ar:
     show:
       my_post: 'مساهماتي'
       my_comments: 'تعليقاتي'
+  notifications:
+    clean_all: 'مسح الإشعارات'
+    all_notifications: 'الإشعارات'
+    no_records: 'لا يوجد لديك اي اشعارات'
+    comment:
+      user_commented: 'قام بالتعليق على مساهمتك'
 
   comment:
     create:
