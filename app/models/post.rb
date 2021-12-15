@@ -22,6 +22,6 @@ class Post < ApplicationRecord
   end
 
   def normalize_friendly_id(string)
-    string.gsub(/\s+/, '-').gsub(/[^a-zA-Zأ-ي-0-9-]*/, '')
+    string.gsub(/\s+/, '-').gsub(/[^a-zA-Zأ-ي0-9-]*/, '')
   end
 end
